@@ -8,7 +8,7 @@ const Navbar = () => {
         <NavLink to="/dashboard" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : ""}>Pages    to Read</NavLink>
     </div>
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar bg-base-100 my-5 sticky top-0 z-50">
             <div className="navbar-start ">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -31,7 +31,7 @@ const Navbar = () => {
                         {allLi}
                     </ul>
                 </div>
-                <a className="font-extrabold text-3xl">Book Vibe</a>
+                <a href='/' className="font-extrabold text-3xl">Book Vibe</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -39,8 +39,8 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end gap-4">
-                <a className="px-5 py-3 bg-[#23BE0A] rounded-lg text-xl text-white font-bold">Sign In</a>
-                <a className="px-5 py-3 bg-[#59C6D2] rounded-lg text-xl text-white font-bold">Sign Up</a>
+                <button className="greenBtn ">Sign In</button>
+                <button className="px-5 py-3 bg-[#59C6D2] rounded-lg text-xl text-white font-bold">Sign Up</button>
             </div>
         </div>
     );
