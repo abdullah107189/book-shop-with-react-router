@@ -1,0 +1,13 @@
+.active{
+    padding: 10px 20px;
+    border-radius: 10px;
+    border:1px solid #23BE0A;
+    color: #23BE0A;
+    font-weight: 700;
+}
+.alink{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
