@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FaRegStar, FaInfo } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 const Book = ({ book }) => {
     // const obj = {
@@ -20,16 +21,18 @@ const Book = ({ book }) => {
     // }
     const { bookId, bookName, author, image, review, totalPages, rating, category, tags, publisher, yearOfPublishing } = book
     return (
-        <div className="card bg-base-100 shadow-xl border">
-            <div className="mt-4 w-[300px] h-[200px] mx-auto relative group duration-300 hover:-translate-y-1">
+        <div className="card bg-base-100 shadow-lg border group hover:shadow-2xl">
+            <div className="mt-4 w-[300px] h-[200px] mx-auto relative duration-300 hover:-translate-y-1">
                 <img
                     className={`rounded-xl object-contain w-full h-full`}
                     src={image}
                     alt="Shoes"
                 />
-                <button className={`group-hover:flex hidden absolute top-0 right-0 hover:bg-gray-300 z-10 rounded-full p-5`}>
-                    <FaInfo></FaInfo>
-                </button>
+                <Link to={`/bookDetails/${bookId}`}>
+                    <button className={`group-hover:flex hidden absolute top-0 right-0 hover:bg-gray-300 bg-gray-200 z-10 rounded-full p-5`}>
+                        <FaInfo></FaInfo>
+                    </button>
+                </Link>
             </div>
             <div className="card-body">
                 <div className='flex items-center gap-4 mb-3'>

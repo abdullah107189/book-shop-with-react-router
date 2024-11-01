@@ -40,7 +40,7 @@ const Navbar = () => {
             </div>
             <div className="navbar-end gap-4">
                 <button className="greenBtn ">Sign In</button>
-                <button className="px-5 py-3 bg-[#59C6D2] rounded-lg text-xl text-white font-bold">Sign Up</button>
+                <button className="px-5 py-3 bg-[#59C6D2] rounded-lg text-white font-bold">Sign Up</button>
             </div>
         </div>
     );
