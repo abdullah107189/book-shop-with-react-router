@@ -1,20 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLoaderData, useNavigate, useParams } from 'react-router-dom';
 import { setDataToLS } from '../utilities/LocalStorage';
 
 const BookDetails = () => {
     const { id } = useParams()
     const bId = parseInt(id)
-    const LoadBooks = useLoaderData()
-    const book = LoadBooks.find(book => book.bookId === bId)
+    const [book, setBook] = useState({})
+    const LoadBooks = useLoaderData() || []
+    console.log(LoadBooks);
+
+    useEffect(() => {
+        if (LoadBooks.length > 0) {
+            const book1 = LoadBooks?.find(book => book.bookId === bId)
+            setBook(book1)
+        }
+    }, [])
     const { bookId, bookName, author, image, review, totalPages, rating, category, tags, publisher, yearOfPublishing } = book;
+
+
     const navigate = useNavigate()
     const handleRedList = (id) => {
         setDataToLS(id, 'read-list')
     }
     return (
         <div className='my-10' id='bookDetails'>
-            <button onClick={() => navigate(-1)} className='greenBtn mb-2'>Go back</button>
+            <button onClick={() => navigate(-1)} className='greenBtnBorder hover:text-[#23BE0A] mb-2'>Go back</button>
             <div className='md:flex gap-10 '>
                 <div className=' md:w-1/2 bg-gray-200 flex items-center justify-center rounded-3xl'>
                     <div className='w-[425px] h-[564px]'>
@@ -35,7 +45,7 @@ const BookDetails = () => {
                     <div className='flex items-center gap-4'>
                         <span className='font-extrabold'>Tag : </span>
                         {
-                            tags.map((item, idx) => <p className='badge bg-[#23BE0A] bg-opacity-10 text-[#23BE0A] font-bold' key={idx}>{item}</p>)
+                            tags?.map((item, idx) => <p className='badge bg-[#23BE0A] bg-opacity-10 text-[#23BE0A] font-bold' key={idx}>{item}</p>)
                         }
                     </div>
                     <hr />

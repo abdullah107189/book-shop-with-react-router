@@ -10,7 +10,15 @@
         color: white;
         font-weight: 700;
     }
+
+    .greenBtnBorder {
+        padding: 12px 20px;
+        border:1px solid #23BE0A;
+        border-radius: 8px;
+        font-weight: 700;
+    }
 }
-*{
+
+* {
     scroll-behavior: smooth;
 }
